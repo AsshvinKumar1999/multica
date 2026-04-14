@@ -9,7 +9,8 @@ export { ThemeProvider } from "@multica/ui/components/common/theme-provider"
 if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
   const orig = console.error;
   console.error = (...args: unknown[]) => {
-    if (typeof args[0] === "string" && args[0].includes("Encountered a script tag"))
+    const msg = typeof args[0] === "string" ? args[0] : "";
+    if (msg.includes("Encountered a script tag") || msg.includes("hydrat"))
       return;
     orig.apply(console, args);
   };

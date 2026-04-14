@@ -61,7 +61,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased font-sans h-full", geist.variable, geistMono.variable)}
     >
-      <body className="h-full overflow-hidden">
+      <body className="h-full overflow-hidden" suppressHydrationWarning>
         <LocaleSync />
         <ThemeProvider>
           <WebProviders>
